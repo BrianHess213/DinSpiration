@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinner Inspiration</title>
+  <title>Recipe Search</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
+
+<header>
+  <h1>Recipe Search</h1>
+</header>
+
 <body>
-    
+
+  <main>
+
+    <div class="CardBackground">
+      <div>
+        <div class="card">
+          <div class="card-image">
+            <figure class="imageis-4by3">
+              <div class="carouselbox" aria-role="img" aria-label="carousel">
+                <img id="carousel-image" alt="Placeholder image">
+              </div>
+            </figure>
+          </div>
+          <div class="card-content">
+            <button class="button is-primary" id="previous">← Previous</button>
+            <button class="button is-primary" id="next">Next →</button>
+            <button class="button is-primary" id="fetch-button">Recipe</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="RecipeContainer">
+        <div class="control">
+          <input class="input" id="box" type="text" placeholder="Recipe...">
+        </div>
+
+        <div class="RecipeBody">
+          <div class="col-8 mb-3" id="list"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="./assets/js/script.js"></script>
+  <!-- <script src="./assets/images/Big Tree Silhouette.jpg"></script>
+    <script src="./assets/images/Boo Fliping off .png"></script>
+    <script src="./assets/images/Cool Wolf.jpg"></script> -->
 </body>
+
 </html>
