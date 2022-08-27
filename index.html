@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Recipe Search</title>
+  <title>DinSpiration</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,48 +17,46 @@
 </head>
 
 <header>
-  <h1>Recipe Search</h1>
+  <h1>DinSpiration</h1>
 </header>
 
 <body>
 
   <main>
 
-    <div class="CardBackground">
-      <div>
-        <div class="card">
-          <div class="card-image">
-            <figure class="imageis-4by3">
-              <div class="carouselbox" aria-role="img" aria-label="carousel">
-                <img id="carousel-image" alt="Placeholder image">
-              </div>
-            </figure>
-          </div>
-          <div class="card-content">
-            <button class="button is-primary" id="previous">← Previous</button>
-            <button class="button is-primary" id="next">Next →</button>
-            <button class="button is-primary" id="fetch-button">Recipe</button>
-          </div>
-        </div>
+    <div class="container is-fluid" id="redditContainer">
+      <div class="redditImage">
+        <img src="" alt="">
       </div>
+      <button class="button is-primary" id="nextButton">Find Inspiration</button>
+    </div>
 
-      <div class="RecipeContainer">
+    <div class="container is-fluid" id="staticContainer">
+      <div id="recipeContainer">
         <div class="control">
-          <input class="input" id="box" type="text" placeholder="Recipe...">
-        </div>
-
-        <div class="RecipeBody">
-          <div class="col-8 mb-3" id="list"></div>
+          <input class="input" id="searchBar" type="text" placeholder="Recipe Search...">
+          <button class="button is-primary" id="recipeButton">Search</button>
         </div>
       </div>
     </div>
+
+
+    <div class="container is-fullhd" id="savedContainer">
+      <div class="savedRecipesTitle">
+        <h4>Saved Recipes</h4>
+      </div>
+    </div>
+
   </main>
 
 
   <script src="./assets/js/script.js"></script>
-  <!-- <script src="./assets/images/Big Tree Silhouette.jpg"></script>
-    <script src="./assets/images/Boo Fliping off .png"></script>
-    <script src="./assets/images/Cool Wolf.jpg"></script> -->
 </body>
 
 </html>
+
+
+
+<!-- <button class="button is-primary" id="previous">← Previous</button>
+<button class="button is-primary" id="next">Next →</button>
+<button class="button is-primary" id="spoon-button">Recipe</button> -->
