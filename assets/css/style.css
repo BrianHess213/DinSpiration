@@ -1,169 +1,112 @@
-*{
+* {
   font-family: 'Libre Baskerville', serif;
 }
 
-:root{
+:root {
   --primary-Background-Color: #010914;
   --secondary-Background-Color: #010914;
   --panel-Background-Color: #111A23;
   --primary-Button-Color: #8D58FE;
-  --primary-Text-Color:#F1F1F3;
+  --primary-Text-Color: #F1F1F3;
 }
 
-header
-{
+header {
   position: relative;
-  top: 3rem;
-  text-align: center;
+  height: 8rem;
   color: var(--primary-Text-Color);
   font-size: 2rem;
+  background-color: #141a231d;
 
 }
+
+header h1
+{
+  position: relative;
+  top: 30%;
+  margin-left: 3%;
+  }
 
 
 
 body {
+  background-color: #0d1013;
+}
+
+
+#redditContainer {
+  float: left;
+  margin: 3% 0% 3% 6%;
+  width: 40%;
+  height: 25rem;
+  background-color: var(--panel-Background-Color);
+}
+
+.redditImage{
+  width: 40vw;
+  height: 20rem;
+  background-color: #0109146b;
+}
+
+#nextButton {
   position: relative;
+  top: 5%;
+  left: 40%;
+  background-color: var(--primary-Button-Color);
+}
+
+#recipeContainer {
+  float: right;
+  /* Margin Shorthand top, right, bottom, left */
+  margin: 3% 6% 3% 0%;
+  width: 40%;
   height: fit-content;
+  background-color: var(--panel-Background-Color);
+}
 
-    background-image: linear-gradient(-90deg, #221F4C, #010914 );
-   
-  }
- 
+.control
+{
+  display: flex;
+  margin: 3%;
 
-  .card
-  {
-  
-   position: relative;
-   top: 5rem;
-   left: 3%;
-   width: 45rem;
-   border: 4px var(--primary-Text-Color) solid;
-   border-radius: 10px;
-  }
+}
 
+#searchBar
+{
+  background-color: rgb(222, 218, 220);
+  border-radius: 5px 0px 0px 5px;
+}
 
+#searchBar::placeholder
+{
+  color: #252525;
+  opacity: 0.5;
+}
 
-  .card-content
-  {
-    background-color: var(--panel-Background-Color);
-    text-align: center;
-  }
-
-  #previous
-  {
-    background-color: var(--primary-Button-Color);
-  }
-
-  #next
-  {
-    background-color: var(--primary-Button-Color);
-  }
-
-  .RecipeContainer{
-    position: relative;
-    float: right;
-    padding: 1rem;
-    top: 5rem;
-    right: 15%;
-    width: 32vw;
-    background-color: var(--panel-Background-Color);
-    border: 4px var(--primary-Text-Color) solid;
-    color: var(--primary-Text-Color);
-    border-radius: 10px;
-  }
-  
-  .control
-  {
-    margin-bottom: 5%;
-    
-  }
-
-  #box::placeholder
-  {
-    color: var(--primary-Background-Color);
-    opacity: 0.5;
-  }
-
-  #box
-  {
-    background-color: var(--primary-Text-Color);
-    
-  }
-
-  @media only screen and (min-width: 1281px) {
-    .RecipeContainer
-    {
-      position: relative;
-      right: 8%;
-    }
-  }
-
-  @media only screen and (max-width: 1280px) {
-    .card {
-      margin-left: 2rem;
-      margin-bottom: 1rem;
-      width: 88%;
+#recipeButton{
+  background-color: var(--primary-Button-Color);
+  border-radius: 0px 5px 5px 0px;
+}
 
      
-    }
-    .RecipeContainer{
-      display: flex;
-      float: right;
-      
-      width: 70%;
-      flex-wrap: wrap;
-      flex-direction: column;
-    }
-  }
+#savedContainer{
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  background-color: var(--panel-Background-Color);
+}
 
-    
+.savedRecipesTitle{
+background-color: #0e151c;
+width: 100%;
+height: 2rem;
+}
 
-  @media only screen and (max-width: 1024px) {
-    .card {
-      margin-left: 2rem;
-      margin-bottom: 1rem;
-      width: 88%;
-
-     
-    }
-    .RecipeContainer{
-      display: flex;
-      width: 70%;
-      flex-wrap: wrap;
-      flex-direction: column;
-    }
-  }
+.savedRecipesTitle h4
+{
+  margin-left: 1%;
+  color: var(--primary-Text-Color);
+}
 
 
-  @media only screen and (max-width: 768px) {
-    .card {
-      margin-left: 0.5rem;
-      margin-bottom: 1rem;
-      width: 88%;
-    
-     
-    }
-    .RecipeContainer{
-      display: flex;
-      width: 70%;
-      flex-wrap: wrap;
-      flex-direction: column;
-    }
-  }
 
-  @media only screen and (max-width: 480px) {
-    .card {
-      margin-left: 0.5rem;
-      margin-bottom: 1rem;
-      width: 88%;
-    
-     
-    }
-    .RecipeContainer{
-      display: flex;
-      width: 70%;
-      flex-wrap: wrap;
-      flex-direction: column;
-    }
-  }
