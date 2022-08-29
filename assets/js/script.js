@@ -5,10 +5,13 @@ var searchButon = document.querySelector("#recipeButton");
 
 
 
+
+
+
 //----Call Reddit and Spoonacular API functionality--------------------------------------
 function getApi() {
   getReddit();
-  getSpoon();
+  //getSpoon();
 }
 function getReddit() {
   //----Reddit API query---------
@@ -94,6 +97,8 @@ function getReddit() {
         console.log('--reddit Title test----');
         console.log(cleanTitle.textContent);
         redditContent.appendChild(cleanTitle);
+
+        console.log(redditContent);
       } //else { it would be good to figure out what to do if it looks different, but it's hard
       //redditContent.appendChild (redditTitle);
       //}
@@ -102,7 +107,7 @@ function getReddit() {
 
 function getSpoon() {
   //----Spoonacular API query
-   var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=ac6e3218814742b6a762c200d1c17b18&query=lamb&number=2&addRecipeInformation=true';
+  var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=ac6e3218814742b6a762c200d1c17b18&query=lamb&number=2&addRecipeInformation=true';
 
   var searchInputVal = document.querySelector('#searchBar').value;
   console.log(searchInputVal);
@@ -121,6 +126,8 @@ function getSpoon() {
     // console.log (cleanTitle.textContent);
     // redditContent.appendChild(cleanTitle); 
 
+  } else {
+    var cleanInput = searchInputVal;
   }
 
   //var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=1ba08610419e4c7a9791d166c28d523e&query=' + cleanInput + '&number=10&instructionsRequired=true&addRecipeInformation=true';
@@ -158,7 +165,16 @@ function getSpoon() {
 }
 
 
-nextButton.addEventListener("click", getReddit());
-searchButon.addEventListener("click", getSpoon());
+ nextButton.addEventListener("click", function(){
+
+  getReddit();
+  document.getElementById("redditStartText").style.display = "none";
+
+ });
+searchButon.addEventListener("click", function(){
+
+  getSpoon();
+  document.getElementById("recipeStartText").style.display = "none";
+});
 
 

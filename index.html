@@ -18,21 +18,23 @@
 
 <header>
   <h1>DinSpiration</h1>
+  <h5>Feast with your eyes, and we will find you the perfect recipe!</h5>
 </header>
 
 <body>
 
   <main>
-
-    <div class="container is-fluid" id="redditContainer">
-      <div class="redditImage">
-        <img src="" alt="">
+    <div class="cardRows">
+      <div class="container is-fluid" id="redditContainer">
+        <div id="redditImage"></div>
+        <h4 id="redditStartText">Start here! We'll find you something that looks good to eat!</h4>
+        <button class="button is-primary mt-auto" id="nextButton">Find Inspiration</button>
       </div>
-      <button class="button is-primary" id="nextButton">Find Inspiration</button>
-    </div>
 
-    <div class="container is-fluid" id="staticContainer">
+      
+
       <div id="recipeContainer">
+        <h4 id="recipeStartText">Found something that looks good? Type your dish name here!</h4>
         <div class="control">
           <input class="input" id="searchBar" type="text" placeholder="Recipe Search...">
           <button class="button is-primary" id="recipeButton">Search</button>
@@ -43,7 +45,8 @@
 
     <div class="container is-fullhd" id="savedContainer">
       <div class="savedRecipesTitle">
-        <h4>Saved Recipes</h4>
+        <h4>Saved Recipes</h4> <hr>
+        <h5>Once you find something you like, we'll save it for you here so you can always find it!</h5>
       </div>
     </div>
 
@@ -54,9 +57,3 @@
 </body>
 
 </html>
-
-
-
-<!-- <button class="button is-primary" id="previous">← Previous</button>
-<button class="button is-primary" id="next">Next →</button>
-<button class="button is-primary" id="spoon-button">Recipe</button> -->
