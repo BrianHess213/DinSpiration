@@ -1,11 +1,12 @@
 var spoonContent = document.querySelector('#recipeContainer');
-var redditContent = document.querySelector("#redditImage")
+var redditContent = document.querySelector("#redditImage");
+var saveContent = document.getElementById("saveContainer");
 var nextButton = document.querySelector("#nextButton");
-var searchButon = document.querySelector("#recipeButton");
+var searchButton = document.getElementById("recipeButton");
+var saveButton = document.getElementById("addRecipeButton");
 
-
-
-
+var isRedditActive = false;
+var isSpooncularActive = false;
 
 
 //----Call Reddit and Spoonacular API functionality--------------------------------------
@@ -107,7 +108,7 @@ function getReddit() {
 
 function getSpoon() {
   //----Spoonacular API query
-  var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=ac6e3218814742b6a762c200d1c17b18&query=lamb&number=2&addRecipeInformation=true';
+  //var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=ac6e3218814742b6a762c200d1c17b18&query=lamb&number=2&addRecipeInformation=true';
 
   var searchInputVal = document.querySelector('#searchBar').value;
   console.log(searchInputVal);
@@ -130,7 +131,7 @@ function getSpoon() {
     var cleanInput = searchInputVal;
   }
 
-  //var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=1ba08610419e4c7a9791d166c28d523e&query=' + cleanInput + '&number=10&instructionsRequired=true&addRecipeInformation=true';
+  var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=1ba08610419e4c7a9791d166c28d523e&query=' + cleanInput + '&number=10&instructionsRequired=true&addRecipeInformation=true';
 
   console.log(spoonUrl);
   //----Parse selected Spoonacular JSON object and display selected values-------         
@@ -161,20 +162,74 @@ function getSpoon() {
       recipeLink.href = data.results[0].sourceUrl;
 
       spoonContent.appendChild(recipeLink);
+
+      var linkList = document.createElement("li");
+      var hrSpace = document.createElement("hr");
+
+
+      // Appends the recipe name and link to the save section of the document 
+      saveButton.addEventListener("click", function () {
+        document.getElementById("savedContainerText").style.display = "none";
+
+        hrSpace.appendChild(recipeLink);
+        linkList.appendChild(hrSpace);
+        recipeTitle.appendChild(hrSpace);
+        linkList.appendChild(recipeTitle);
+
+        localStorage.setItem("recipeTitle", "savedTitle")
+        localStorage.setItem("recipeLink", "savedURL");
+        saveContent.appendChild(linkList);
+
+        //Grabs all the "A" tags in the document a appends an attribute "_blank" to open a new tab
+        var allATags = document.getElementsByTagName("a");
+        for (let i = 0; i < allATags.length; i++) {
+          allATags[i].setAttribute("target", "_blank");
+          console.log("this is all the tags" + allATags);
+          console.log("this is all the elements" + element);
+        }
+
+      });
+
     });
+}
+// Calls for the file that were saved to local storage
+function SaveLocally() {
+  savedTitle = localStorage.getItem("recipeTitle")
+  savedURL = localStorage.getItem("recipeLink");
 }
 
 
- nextButton.addEventListener("click", function(){
-
-  getReddit();
-  document.getElementById("redditStartText").style.display = "none";
-
- });
-searchButon.addEventListener("click", function(){
-
-  getSpoon();
-  document.getElementById("recipeStartText").style.display = "none";
+// When the next button is clicked it calls for getReddit(); function
+// And when it's clicked a second time it removes the children and then recalls for getReddit();
+nextButton.addEventListener("click", function () {
+  if (isRedditActive === false) {
+    getReddit();
+    document.getElementById("redditStartText").style.display = "none";
+    isRedditActive = true;
+  } else if (isRedditActive === true) {
+    const redditParent = document.getElementById('redditImage');
+    console.log(redditImage.firstChild.nodeName);
+    redditContent.removeChild(redditParent.lastChild);
+    redditContent.removeChild(redditParent.lastElementChild);
+    getReddit();
+  }
 });
 
 
+// When the recipe search button is clicked it calls for getSpoon(); function
+// And when it's clicked a second time it removes the children and then recalls for getSpoon();
+searchButton.addEventListener("click", function (element) {
+
+  if (isSpooncularActive === false) {
+    document.getElementById("recipeStartText").style.display = "none";
+    getSpoon();
+    isSpooncularActive = true;
+  } else if (isSpooncularActive === true) {
+
+    const spoonParent = document.getElementById("recipeContainer");
+    spoonContent.removeChild(spoonParent.lastElementChild);
+    spoonContent.removeChild(spoonParent.lastElementChild);
+    spoonContent.removeChild(spoonContent.lastElementChild);
+    getSpoon();
+  }
+});

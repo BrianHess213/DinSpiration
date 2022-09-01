@@ -3,14 +3,16 @@
 }
 
 :root {
-  --primary-Background-Color: hsl(215, 90%, 4%);
+  --primary-Background-Color: #010913;
   --secondary-Background-Color: hsl(215, 90%, 4%);
   --panel-Background-Color: hsl(212, 30%, 15%);
   --primary-Button-Color: hsl(259, 99%, 67%);
+  --button-Hover-Color: hsl(325, 62%, 58%);
   --primary-Text-Color: hsl(240, 8%, 95%);
 }
 
 header {
+  display: flex;
   position: relative;
   height: 8rem;
   color: var(--primary-Text-Color);
@@ -25,7 +27,7 @@ header h1 {
   font-size: 2rem;
 }
 
-header h5{
+header h2 {
   position: relative;
   top: 33%;
   margin-left: 3%;
@@ -36,17 +38,26 @@ body {
   background-color: var(--primary-Background-Color);
 }
 
+a:visited {
+  color: var(--button-Hover-Color);
+}
+
+a:hover {
+  color: var(--button-Hover-Color);
+}
+
 .cardRows {
   display: flex;
   position: relative;
   margin: 6%;
 }
 
-.cardRows h3{
+.cardRows h3 {
   color: var(--primary-Text-Color);
   text-align: center;
 }
-.cardRows h4{
+
+.cardRows h4 {
   position: relative;
   bottom: 90%;
   text-align: center;
@@ -60,16 +71,20 @@ body {
   width: 95%;
 }
 
-#RedditSearchButton h4{
+#RedditSearchButton h4 {
   position: relative;
-  bottom: 7rem;
+  bottom: 8rem;
 
 }
 
-#nextButton{
+#nextButton {
   background-color: var(--primary-Button-Color);
 }
 
+#nextButton:hover {
+  background-color: var(--button-Hover-Color);
+
+}
 
 #redditContainer {
   float: left;
@@ -88,45 +103,56 @@ body {
   color: var(--primary-Text-Color);
   background-color: var(--panel-Background-Color);
 }
-#redditImage{
+
+#redditImage {
   position: relative;
   height: 100%;
   width: 100%;
 }
 
-#redditImage img{
+#redditImage img {
   width: 100%;
   height: 70%;
 }
 
-#recipeContainer h6{
+#recipeContainer h6 {
+  position: relative;
+  top: 0%;
   font-size: 2em;
   margin-bottom: 2%;
 }
 
-#recipeContainer h4{
+#recipeContainer p {
   position: relative;
-  bottom: 0%;
+  top: 0%;
+}
+
+#recipeContainer a {
+  position: relative;
+  top: 1%;
+}
+
+#recipeContainer h4 {
+  position: relative;
+  top: 0%;
   width: 100%;
 }
 
-#recipeContainer button{
+#recipeContainer button {
   background-color: var(--primary-Button-Color);
 }
 
- .control {
- display: flex;
+#control {
+  display: flex;
   position: relative;
   right: 5%;
-  top: 60%;
+  top: 0%;
   width: 100%;
   margin: 3%;
 }
 
-
-.control #searchBar {
+#searchBar {
   position: relative;
-  bottom: 3rem;
   left: 1rem;
   background-color: rgb(222, 218, 220);
   border-radius: 5px 0px 0px 5px;
@@ -137,32 +163,68 @@ body {
   opacity: 0.5;
 }
 
-.control #recipeButton {
+#recipeButton {
   position: relative;
-  bottom: 3em;
+  bottom: 10%;
   width: 25%;
-
   background-color: var(--primary-Button-Color);
   border-radius: 0px 5px 5px 0px;
 }
 
+#recipeButton:hover {
+  background-color: var(--button-Hover-Color);
+}
+
+#control #addRecipeButton {
+  position: relative;
+  left: 3%;
+  bottom: 10%;
+}
+
 #savedContainer {
-  display: flex;
+  /* display: flex; */
   position: relative;
   margin-top: 6%;
   margin-right: 5.5%;
   width: 100%;
-  height: 10rem;
+  min-height: 10rem;
+  height: fit-content;
   background-color: var(--panel-Background-Color);
+}
+
+#saveContainer {
+  float: left;
+  margin-top: 2rem;
+  padding: 2% 0% 0% 2%;
+  width: 100%;
+  height: 100%;
+}
+
+#saveContainer li {
+  color: var(--primary-Text-Color);
+}
+
+#saveContainer h6 {
+  color: var(--primary-Text-Color);
+}
+
+#saveContainer a {
+  display: flex;
+  flex-wrap: nowrap;
+
 }
 
 #addRecipeButton {
   position: relative;
   left: 1rem;
   bottom: 3rem;
-  
+
   width: 10vw;
-  
+
+}
+
+#addRecipeButton:hover {
+  background-color: var(--button-Hover-Color);
 }
 
 .savedRecipesTitle {
@@ -177,6 +239,7 @@ body {
 
   color: var(--primary-Text-Color);
 }
+
 .savedRecipesTitle h5 {
   position: relative;
   bottom: 2vh;
@@ -191,72 +254,67 @@ body {
   color: var(--primary-Button-Color);
 }
 
-hr{
-  position:relative;
-  width: 10rem;  
-  left: 1%; 
+hr {
+  position: relative;
+  width: 10rem;
+  left: 1%;
   bottom: 1rem;
 }
 
-
-
-
 @media only screen and (min-width: 1400px) {
 
-  .cardRows{
+  .cardRows {
     position: relative;
     right: 2%;
   }
 
-  #savedContainer{
+  #savedContainer {
     position: relative;
     left: 2%;
   }
-  
+
 }
-
-
 
 @media only screen and (max-width: 735px) {
 
-.cardRows{
-  display: flex;
-  flex-direction: column;
-}
+  .cardRows {
+    display: flex;
+    flex-direction: column;
+  }
 
+  #redditContainer {
+    position: relative;
+    min-height: 7rem;
+    top: 5rem;
+  }
 
-#redditContainer{
-  position: relative;
-  min-height: 7rem;
-  top: 5rem;
-}
+  #redditContainer h4 {
+    position: relative;
+    top: 0.09em;
+  }
 
-#redditContainer h4{
-  position: relative;
-  top: 0.5rem;
-}
+  #redditContainer button {
+    position: relative;
+    bottom: 0vh;
+  }
 
-#redditContainer button{
-  position: relative;
-  top: 1rem;
+  #recipeContainer {
+    position: relative;
+    top: 6rem;
+  }
 
-}
+  .control {
+    position: relative;
+    top: 3rem;
+  }
 
-#recipeContainer{
-  position: relative;
-  top: 6rem;
-}
+  #savedContainer {
+    visibility: hidden;
+    /* position: relative;
+    top: 7rem; */
+  }
 
-
-
-.control{
-  position: relative;
-  top: 3rem;
-}
-
-#savedContainer{
-  position: relative;
-  top: 7rem;
-}
-  
+  #addRecipeButton {
+    visibility: hidden;
+  }
 }
