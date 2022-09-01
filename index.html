@@ -2,29 +2,36 @@
 <html lang="en">
 
 <head>
+  <!-- Adds relative infromation for HTML -->
   <title>DinSpiration</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./assets/images/Favicon.png">
+  <!-- Adds a font, connects the CSS to HTML, connects bulma CSS, connect a favicon, and connects jQuery  -->
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-  <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 </head>
 
 <header>
+  <!-- Adds a page title and subtitle -->
   <h1>DinSpiration</h1>
-  <h5>Feast with your eyes, and we will find you the perfect recipe!</h5>
+  <h2>Feast with your eyes, and we will find you the perfect recipe!</h2>
 </header>
 
 <body>
 
   <main>
+    <!-- cardRows container holds the reddit container and the recipe container to be edited togeather -->
     <div class="cardRows">
+      <!-- Adds an image through JavaScript, a description, and button to the Reddit Container -->
       <div class="container is-fluid" id="redditContainer">
         <div id="redditImage"></div>
         <div id="RedditSearchButton">
@@ -33,8 +40,7 @@
         </div>
       </div>
 
-
-
+      <!-- Adds description, input field, and two buttons to the Recipe Container -->
       <div id="recipeContainer">
         <h4 id="recipeStartText">Found something that looks good? Type your dish name here!</h4>
         <div class="control" id="control">
@@ -42,24 +48,24 @@
           <button class="button is-primary" id="recipeButton">Search</button>
           <button class="button is-primary" id="addRecipeButton">Add Recipe</button>
         </div>
-     
-         
-        
       </div>
     </div>
 
 
+    <!-- Adds title, description, and saved recipes to the Saved Container -->
     <div class="container is-fullhd" id="savedContainer">
       <div class="savedRecipesTitle">
         <h4>Saved Recipes</h4>
         <hr>
-        <h5>Once you find something you like, we'll save it for you here so you can always find it!</h5>
+        <h5 id="savedContainerText">Once you find something you like, we'll save it for you here so you can always find
+          it!</h5>
       </div>
+      <div id="saveContainer"></div>
     </div>
 
   </main>
 
-
+  <!-- Connects the JavaScript file to the HTML -->
   <script src="./assets/js/script.js"></script>
 </body>
 
