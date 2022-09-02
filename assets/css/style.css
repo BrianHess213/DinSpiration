@@ -215,7 +215,7 @@ a:hover {
 
 }
 
-#localStorageButton{
+#localStorageButton {
   position: relative;
   float: right;
   right: 1rem;
@@ -223,7 +223,7 @@ a:hover {
   background-color: var(--primary-Button-Color);
 }
 
-#localStorageButton:hover{
+#localStorageButton:hover {
   background-color: var(--button-Hover-Color);
 }
 

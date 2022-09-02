@@ -171,39 +171,39 @@ function getSpoon() {
       // Appends the recipe name and link to the save section of the document 
       saveButton.addEventListener("click", function () {
         document.getElementById("savedContainerText").style.display = "none";
-      
-      
+
+
         linkList.appendChild(recipeTitle);
         recipeTitle.appendChild(recipeLink);
-        
+
         var lsTitle = recipeTitle;
         var lsLink = recipeLink;
-      
-       localStorage.setItem("Title", lsTitle);
-       localStorage.setItem("Link", lsLink);
 
-       console.log("this is LS Title" + lsTitle);
-       console.log("this is LS Link" + lsLink);
+        localStorage.setItem("Title", lsTitle);
+        localStorage.setItem("Link", lsLink);
+
+        console.log("this is LS Title" + lsTitle);
+        console.log("this is LS Link" + lsLink);
         saveContent.appendChild(linkList);
-      
+
         //Grabs all the "A" tags in the document a appends an attribute "_blank" to open a new tab
         var allATags = document.getElementsByTagName("a");
         for (let i = 0; i < allATags.length; i++) {
           allATags[i].setAttribute("target", "_blank");
           console.log("this is all the tags" + allATags);
-          
+
         }
       });
     });
 }
-localStorageButton.addEventListener("click", function(){
+localStorageButton.addEventListener("click", function () {
 
   let gettingItem = localStorage.getItem("Link");
 
   let user = JSON.parse(gettingItem);
   document.getElementById("saveContainer").innerHTML = user;
   console.log(user);
- });
+});
 
 // When the next button is clicked it calls for getReddit(); function
 // And when it's clicked a second time it removes the children and then recalls for getReddit();
