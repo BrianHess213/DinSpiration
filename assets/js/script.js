@@ -4,6 +4,7 @@ var saveContent = document.getElementById("saveContainer");
 var nextButton = document.querySelector("#nextButton");
 var searchButton = document.getElementById("recipeButton");
 var saveButton = document.getElementById("addRecipeButton");
+var localStorageButton = document.getElementById("localStorageButton");
 
 var isRedditActive = false;
 var isSpooncularActive = false;
@@ -131,7 +132,7 @@ function getSpoon() {
     var cleanInput = searchInputVal;
   }
 
-  var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=1ba08610419e4c7a9791d166c28d523e&query=' + cleanInput + '&number=10&instructionsRequired=true&addRecipeInformation=true';
+  var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=edf37b37785d42059408772c69f6b049&query=' + cleanInput + '&number=10&instructionsRequired=true&addRecipeInformation=true';
 
   console.log(spoonUrl);
   //----Parse selected Spoonacular JSON object and display selected values-------         
@@ -163,41 +164,46 @@ function getSpoon() {
 
       spoonContent.appendChild(recipeLink);
 
-      var linkList = document.createElement("li");
+      var linkList = document.createElement("tr");
       var hrSpace = document.createElement("hr");
 
 
       // Appends the recipe name and link to the save section of the document 
       saveButton.addEventListener("click", function () {
         document.getElementById("savedContainerText").style.display = "none";
-
-        hrSpace.appendChild(recipeLink);
-        linkList.appendChild(hrSpace);
-        recipeTitle.appendChild(hrSpace);
+      
+      
         linkList.appendChild(recipeTitle);
+        recipeTitle.appendChild(recipeLink);
+        
+        var lsTitle = recipeTitle;
+        var lsLink = recipeLink;
+      
+       localStorage.setItem("Title", lsTitle);
+       localStorage.setItem("Link", lsLink);
 
-        localStorage.setItem("recipeTitle", "savedTitle")
-        localStorage.setItem("recipeLink", "savedURL");
+       console.log("this is LS Title" + lsTitle);
+       console.log("this is LS Link" + lsLink);
         saveContent.appendChild(linkList);
-
+      
         //Grabs all the "A" tags in the document a appends an attribute "_blank" to open a new tab
         var allATags = document.getElementsByTagName("a");
         for (let i = 0; i < allATags.length; i++) {
           allATags[i].setAttribute("target", "_blank");
           console.log("this is all the tags" + allATags);
-          console.log("this is all the elements" + element);
+          
         }
-
       });
-
     });
 }
-// Calls for the file that were saved to local storage
-function SaveLocally() {
-  savedTitle = localStorage.getItem("recipeTitle")
-  savedURL = localStorage.getItem("recipeLink");
-}
+localStorageButton.addEventListener("click", function(){
 
+  let gettingItem = localStorage.getItem("Link");
+
+  let user = JSON.parse(gettingItem);
+  document.getElementById("saveContainer").innerHTML = user;
+  console.log(user);
+ });
 
 // When the next button is clicked it calls for getReddit(); function
 // And when it's clicked a second time it removes the children and then recalls for getReddit();
@@ -231,5 +237,7 @@ searchButton.addEventListener("click", function (element) {
     spoonContent.removeChild(spoonParent.lastElementChild);
     spoonContent.removeChild(spoonContent.lastElementChild);
     getSpoon();
+    // isSpooncularActive = false;
   }
 });
+
